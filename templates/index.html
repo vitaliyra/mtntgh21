@@ -3,13 +3,133 @@
 <html>
 <head>
     <meta charset="utf-8" />
+    <style>
+
+span#red {
+  color: Red;   #  int
+}
+
+
+
+span#blue {
+  color: MediumBlue;   #  int
+}
+
+span#Violet {
+  color: MediumOrchid;   #  keyword
+}
+
+span#Tomato {
+  color: Tomato;    # str
+  }
+
+span#Green {
+  color: MediumSeaGreen;    # comment
+  }
+
+p.fp::first-letter {
+    font-size: 3em; /* Размер буквицы */
+    padding: 3px; /* Поля вокруг первой буквы */
+    margin-right: 5px; /* Отступ справа */
+    color: #e7685d; /* Цвет буквицы  */
+    float: left; /* Обтекание по правому краю */
+    line-height: 0.33em; /* Положение относительно текста */
+   }
+   p.fp { clear: left; }
+
+</style>
     <link rel="stylesheet" href="{% static "css/styles.css" %}" />
     <title>Hello Django</title>
 </head>
-
-
 <body>
-    <h1>Another image</h1>
+    <h1>Блог Виталия Большого</h1>
     <img src="{% static "images/python.JPG" %}" alt="Stones along the river" >
+
+<h1>python</h1>
+<h1><span id="red">For what classes?</span></h1>
+
+ <p class="fp">Однажды разработчик игр(PD) захотел иметь в своей игре
+равносторонний треугольник(ChTr), <br>состоящий из 4-х равносторонних,
+разноцветных треугольников(InTr),<br> и
+чтобы при щелчке(нажатии) по(на) любому InTr все InTr этого ChTr
+изменяли свой цвет на общий(отличный от цвета любого InTr).<br>
+&nbsp;&nbsp;Кроме вышеуказанного количество ChTr-ов должно варьироваться в программе
+от 0 до нескольких штук, и размещаться они должны на экране в координатах x,0,
+где x можно было бы задать по желанию.</p>
+
+<p>&nbsp;&nbsp;Поиски в интернете ничего не дали и PD обратился с заказом к
+разработчику пользовательских классов (DUC).</p>
+
+<p>DUC написал программу cl_ChTr.py и передал её PD.</p>
+<p>Вот эта программа:</p>
+
+
+<br>
+<span id="Violet">from</span> turtle <span id="Violet">import *</span><br>
+<br>
+<span id="Violet">class</span> FourTurtle():<br>
+&nbsp;&nbsp;&nbsp;&nbsp;    <span id="Violet">def</span> __init__(self,init_pos=0):<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        osk=[(init_pos,-4),(init_pos,9),(10+init_pos,-10),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        (-10+init_pos,-10)]  # Для тринкет можно подкорректировать начальные точки<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        l_color=[<span id="Tomato">'red'</span>,<span id="Tomato">'blue'</span>,<span id="Tomato">'orange'</span>,<span id="Tomato">'green'</span>]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        self.l = [Turtle() <span id="Violet">for</span> ii <span id="Violet">in</span> range(4)]<br>
+<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        <span id="Violet">for</span> ii <span id="Violet">in</span> self.l:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            ii.ht()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            ii.shape(<span id="Tomato">'triangle'</span>)  <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            ii.pu()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            ii.onclick(self.eventReact)<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        <span id="Violet">for</span> ii <span id="Violet">in</span> range(4):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            self.l[ii].goto(osk[ii])<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            self.l[ii].color(l_color[ii])<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            <span id="Violet">if</span> ii==0:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                self.l[ii].rt(90)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            <span id="Violet">else</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                self.l[ii].lt(90)<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        <span id="Violet">for</span> ii <span id="Violet">in</span> range(4):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            self.l[ii].goto(osk[ii])<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            self.l[ii].color(l_color[ii])<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        <span id="Violet">for</span> ii <span id="Violet">in</span> self.l:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            ii.st()<br>
+
+<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;        <span id="Violet">def</span> eventReact(self,x,y):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            <span id="Violet">for</span> ii <span id="Violet">in</span> range(4):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                self.l[ii].color(<span id="Tomato">'violet'</span>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;        <br>
+
+
+
+
+
+<br><br> PD написал свою программу main.py в рамках интерфейса класса FourTurtle для проверки работы DUC_а<br><br>
+
+main.py<br><br>
+
+<span id="Violet">from</span> cl_ChTr <span id="Violet">import *</span><br><br>
+
+aa=FourTurtle()<br>
+bb=FourTurtle(100)<br>
+cc=FourTurtle(-100)<br><br>
+mainloop()<br><br>
+
+и разместил эти программы на сайте triket.io в тринкете  (test_site_page).<br>
+Запустил программу main.py, обрадовался тому, что DUC выполнил его заказ безукоризненно.<br>
+И приступил к разработке игры.<br><br>
+
+ Ознакомиться с работой программы можно <a href="https://trinket.io/python/40cc8c7de7">здесь</a>,<br>
+ а также на своём компе в любой из версий python 3.3 - 3.7, в случае,<br>
+ если какая нибудь из этих версий у вас установлена.<br><br><br>
+
+ <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span id="Green">Консультации, уроки  ivantkachuk44@gmail.com.</span></h3>
+
+
 </body>
 </html>
