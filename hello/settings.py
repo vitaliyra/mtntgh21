@@ -26,7 +26,8 @@ SECRET_KEY = ')i@ec$u(w_6nbwt9z8jtqw17hku(p2@%+2#@=w4qz+n2j60=%k'
 DEBUG = True
 
 #ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['py1tutorial1vit.pythonanywhere.com']
+ALLOWED_HOSTS = ['py1tutorial1vit.pythonanywhere.com',
+                 '127.0.0.1']
 
 # Application definition
 
